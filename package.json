@@ -1,0 +1,25 @@
+{
+  "name": "firstday",
+  "version": "0.1.0",
+  "description": "Monorepo for frontend and backend.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abianche/firstday.git"
+  },
+  "author": "Alessio Bianchetti <abianche@protonmail.com> (abianche.github.io)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/abianche/firstday/issues"
+  },
+  "homepage": "https://github.com/abianche/firstday#readme",
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared"
+  ]
+}
