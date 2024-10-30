@@ -7,7 +7,9 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "emitDecoratorMetadata": true, // Required for TypeORM
+    "experimentalDecorators": true // Required for TypeORM
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

@@ -1,12 +1,13 @@
-import express from "express";
+import "reflect-metadata";
+import app from "./app";
+import { AppDataSource } from "./config/database";
+const PORT = process.env.PORT ?? 3000;
 
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.get("/", (req, res) => {
-  res.send("Welcome to FirstDay API!");
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+AppDataSource.initialize()
+  .then(() => {
+    console.log("Database connected");
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => console.log(error));
