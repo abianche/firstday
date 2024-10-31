@@ -1,11 +1,16 @@
 {
   "name": "firstday",
   "version": "0.1.0",
-  "description": "Monorepo for frontend and backend.",
-  "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:push": "drizzle-kit push",
+    "db:pull": "drizzle-kit pull",
+    "db:generate": "drizzle-kit generate"
   },
   "repository": {
     "type": "git",
@@ -17,9 +22,28 @@
     "url": "https://github.com/abianche/firstday/issues"
   },
   "homepage": "https://github.com/abianche/firstday#readme",
-  "workspaces": [
-    "frontend",
-    "backend",
-    "shared"
-  ]
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.36.0",
+    "jsonwebtoken": "^9.0.2",
+    "next": "15.0.2",
+    "pg": "^8.13.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.8.4",
+    "@types/pg": "^8.11.10",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "drizzle-kit": "^0.27.0",
+    "eslint": "^9.13.0",
+    "eslint-config-next": "15.0.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
 }
