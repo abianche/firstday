@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import RocketIcon from "@mui/icons-material/rocket";
+import RocketIcon from "@mui/icons-material/Rocket";
 
 export default function Home() {
   return (
