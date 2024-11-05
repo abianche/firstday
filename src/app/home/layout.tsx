@@ -1,11 +1,8 @@
-"use client";
-
+"use client";;
 import Header from "@/components/Header";
 import AppNavbar from "@/components/AppNavbar";
 import SideMenu from "@/components/SideMenu";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import { alpha } from "@mui/material/styles";
+import { Box, Stack, alpha } from '@mui/material';
 
 export default function HomeLayout({
   children,

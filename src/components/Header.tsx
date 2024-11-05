@@ -1,8 +1,8 @@
 "use client";
 
 import ColorModeIconDropdown from "@/theme/ColorModeIconDropdown";
-import Stack from "@mui/material/Stack";
 import NavbarBreadcrumbs from "./NavbarBreadcrumbs";
+import { Stack } from '@mui/material';
 
 export default function Header() {
   return (

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
-import Breadcrumbs, { breadcrumbsClasses } from "@mui/material/Breadcrumbs";
+import { breadcrumbsClasses } from "@mui/material/Breadcrumbs";
 import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
+
+import { styled, Typography, Breadcrumbs } from '@mui/material';
 
 const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
   margin: theme.spacing(1, 0),

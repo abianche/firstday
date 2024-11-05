@@ -1,4 +1,6 @@
-import { createTheme, alpha, PaletteMode, Shadows } from "@mui/material/styles";
+import { alpha, Shadows } from "@mui/material/styles";
+
+import { createTheme, PaletteMode } from '@mui/material';
 
 declare module "@mui/material/Paper" {
   interface PaperPropsVariantOverrides {

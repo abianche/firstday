@@ -1,6 +1,8 @@
 import * as React from "react";
-import Badge, { badgeClasses } from "@mui/material/Badge";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
+import { badgeClasses } from "@mui/material/Badge";
+import { IconButtonProps } from "@mui/material/IconButton";
+
+import { Badge, IconButton } from '@mui/material';
 
 export interface MenuButtonProps extends IconButtonProps {
   showBadge?: boolean;
