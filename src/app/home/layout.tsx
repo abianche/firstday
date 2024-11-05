@@ -1,6 +1,10 @@
+"use client";
+
+import Header from "@/components/Header";
 import SideMenu from "@/components/SideMenu";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
+import { alpha } from "@mui/material/styles";
 
 export default function HomeLayout({
   children,
@@ -12,13 +16,13 @@ export default function HomeLayout({
       <SideMenu />
       <Box
         component="main"
-        // sx={(theme) => ({
-        //   flexGrow: 1,
-        //   //   backgroundColor: theme.vars
-        //   //     ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
-        //   //     : alpha(theme.palette.background.default, 1),
-        //   overflow: "auto",
-        // })}
+        sx={(theme) => {
+          return {
+            flexGrow: 1,
+            backgroundColor: alpha(theme.palette.background.default, 1),
+            overflow: "auto",
+          };
+        }}
       >
         <Stack
           spacing={2}
@@ -29,7 +33,7 @@ export default function HomeLayout({
             mt: { xs: 8, md: 0 },
           }}
         >
-          {/* <Header /> */}
+          <Header />
           {/* <MainGrid /> */}
           {children}
         </Stack>
