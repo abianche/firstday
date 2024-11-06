@@ -1,32 +1,6 @@
 import { alpha, Shadows } from "@mui/material/styles";
 
-import { createTheme, PaletteMode } from '@mui/material';
-
-declare module "@mui/material/Paper" {
-  interface PaperPropsVariantOverrides {
-    highlighted: true;
-  }
-}
-declare module "@mui/material/styles/createPalette" {
-  interface ColorRange {
-    50: string;
-    100: string;
-    200: string;
-    300: string;
-    400: string;
-    500: string;
-    600: string;
-    700: string;
-    800: string;
-    900: string;
-  }
-
-  interface PaletteColor extends ColorRange {}
-
-  interface Palette {
-    baseShadow: string;
-  }
-}
+import { createTheme, PaletteMode } from "@mui/material";
 
 const defaultTheme = createTheme();
 
@@ -349,7 +323,7 @@ export const colorSchemes = {
 };
 
 export const typography = {
-  fontFamily: ['"Inter", "sans-serif"'].join(","),
+  fontFamily: "var(--font-roboto)",
   h1: {
     fontSize: defaultTheme.typography.pxToRem(48),
     fontWeight: 600,
@@ -403,9 +377,9 @@ export const shape = {
 };
 
 // @ts-ignore
-const defaultShadows: Shadows = [
-  "none",
-  "var(--template-palette-baseShadow)",
-  ...defaultTheme.shadows.slice(2),
-];
-export const shadows = defaultShadows;
+// const defaultShadows: Shadows = [
+//   "none",
+//   "var(--template-palette-baseShadow)",
+//   ...defaultTheme.shadows.slice(2),
+// ];
+// export const shadows = defaultShadows;

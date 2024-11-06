@@ -1,9 +1,10 @@
-"use client";;
+"use client";
+
 import * as React from "react";
 import DarkModeIcon from "@mui/icons-material/DarkModeRounded";
 import LightModeIcon from "@mui/icons-material/LightModeRounded";
 import { IconButtonOwnProps } from "@mui/material/IconButton";
-import { Box, IconButton, Menu, MenuItem, useColorScheme } from '@mui/material';
+import { Box, IconButton, Menu, MenuItem, useColorScheme } from "@mui/material";
 
 export default function ColorModeIconDropdown(props: IconButtonOwnProps) {
   const { mode, systemMode, setMode } = useColorScheme();
@@ -22,7 +23,6 @@ export default function ColorModeIconDropdown(props: IconButtonOwnProps) {
   if (!mode) {
     return (
       <Box
-        data-screenshot="toggle-mode"
         sx={(theme) => ({
           verticalAlign: "bottom",
           display: "inline-flex",
@@ -43,7 +43,6 @@ export default function ColorModeIconDropdown(props: IconButtonOwnProps) {
   return (
     <React.Fragment>
       <IconButton
-        data-screenshot="toggle-mode"
         onClick={handleClick}
         disableRipple
         size="small"
