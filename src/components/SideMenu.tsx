@@ -1,10 +1,18 @@
-"use client";;
+"use client";
 import * as React from "react";
 import { drawerClasses } from "@mui/material/Drawer";
 import MenuContent from "./MenuContent";
 import OptionsMenu from "./OptionsMenu";
 
-import { styled, Avatar, Drawer as MuiDrawer, Box, Divider, Stack, Typography } from '@mui/material';
+import {
+  styled,
+  Avatar,
+  Drawer as MuiDrawer,
+  Box,
+  Divider,
+  Stack,
+  Typography,
+} from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -24,7 +32,6 @@ export default function SideMenu() {
     <Drawer
       variant="permanent"
       sx={{
-        display: { xs: "none", md: "block" },
         [`& .${drawerClasses.paper}`]: {
           backgroundColor: "background.paper",
         },
