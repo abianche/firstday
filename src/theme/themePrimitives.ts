@@ -376,10 +376,10 @@ export const shape = {
   borderRadius: 8,
 };
 
-// @ts-ignore
-// const defaultShadows: Shadows = [
-//   "none",
-//   "var(--template-palette-baseShadow)",
-//   ...defaultTheme.shadows.slice(2),
-// ];
-// export const shadows = defaultShadows;
+// @ts-expect-error: slicing typing issue
+const defaultShadows: Shadows = [
+  "none",
+  "var(--template-palette-baseShadow)",
+  ...defaultTheme.shadows.slice(2),
+];
+export const shadows = defaultShadows;

@@ -1,11 +1,8 @@
-import * as React from "react";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import AnalyticsRoundedIcon from "@mui/icons-material/AnalyticsRounded";
-import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded";
 import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
-import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
-import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import HelpRoundedIcon from "@mui/icons-material/HelpRounded";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
+import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 
 import {
   List,
@@ -15,27 +12,33 @@ import {
   ListItemText,
   Stack,
 } from "@mui/material";
+import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 
 const mainListItems = [
-  { text: "Home", icon: <HomeRoundedIcon /> },
-  { text: "Analytics", icon: <AnalyticsRoundedIcon /> },
-  { text: "Clients", icon: <PeopleRoundedIcon /> },
-  { text: "Tasks", icon: <AssignmentRoundedIcon /> },
+  { text: "Home", href: "/home", icon: <HomeRoundedIcon /> },
+  { text: "Tasks", href: "/tasks", icon: <AssignmentRoundedIcon /> },
 ];
 
 const secondaryListItems = [
-  { text: "Settings", icon: <SettingsRoundedIcon /> },
-  { text: "About", icon: <InfoRoundedIcon /> },
-  { text: "Feedback", icon: <HelpRoundedIcon /> },
+  { text: "Settings", href: "/settings", icon: <SettingsRoundedIcon /> },
+  { text: "About", href: "/about", icon: <InfoRoundedIcon /> },
+  { text: "Feedback", href: "/feedback", icon: <HelpRoundedIcon /> },
 ];
 
 export default function MenuContent() {
+  const pathname = usePathname();
+
   return (
     <Stack sx={{ flexGrow: 1, p: 1, justifyContent: "space-between" }}>
       <List dense>
-        {mainListItems.map((item, index) => (
+        {mainListItems.map((item) => (
           <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
-            <ListItemButton selected={index === 0}>
+            <ListItemButton
+              component={NextLink}
+              href={item.href}
+              selected={item.href === pathname}
+            >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -44,9 +47,13 @@ export default function MenuContent() {
       </List>
 
       <List dense>
-        {secondaryListItems.map((item, index) => (
+        {secondaryListItems.map((item) => (
           <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
-            <ListItemButton>
+            <ListItemButton
+              component={NextLink}
+              href={item.href}
+              selected={item.href === pathname}
+            >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>

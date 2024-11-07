@@ -1,12 +1,16 @@
-import RocketIcon from "@mui/icons-material/Rocket";
-import { Button } from '@mui/material';
+import { Button } from "@mui/material";
+import NextLink from "next/link";
 
 export default function Home() {
   return (
     <div style={{ padding: "2rem" }}>
       <h1>Welcome to Home</h1>
-      <Button variant="contained" endIcon={<RocketIcon />}>
-        Send
+      <Button
+        variant="contained"
+        LinkComponent={NextLink}
+        href="/home/trainings"
+      >
+        Tranings
       </Button>
     </div>
   );

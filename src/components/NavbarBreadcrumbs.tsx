@@ -1,8 +1,9 @@
-import * as React from "react";
-import { breadcrumbsClasses } from "@mui/material/Breadcrumbs";
 import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
+import { breadcrumbsClasses } from "@mui/material/Breadcrumbs";
 
-import { styled, Typography, Breadcrumbs } from '@mui/material';
+import { Breadcrumbs, Link, styled, Typography } from "@mui/material";
+import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 
 const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
   margin: theme.spacing(1, 0),
@@ -15,19 +16,51 @@ const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
   },
 }));
 
+function capitalize(word: string) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
 export default function NavbarBreadcrumbs() {
+  const pathname = usePathname();
+  const pathnames = pathname.split("/").filter((x) => x);
+
   return (
     <StyledBreadcrumbs
       aria-label="breadcrumb"
       separator={<NavigateNextRoundedIcon fontSize="small" />}
     >
-      <Typography variant="body1">Dashboard</Typography>
-      <Typography
-        variant="body1"
-        sx={{ color: "text.primary", fontWeight: 600 }}
-      >
-        Home
-      </Typography>
+      <Link component={NextLink} href="/" underline="none" color="inherit">
+        <Typography variant="body1">First Day</Typography>
+      </Link>
+      {pathnames.map((value, index) => {
+        const href = "/" + pathnames.slice(0, index + 1).join("/");
+
+        const isLast = index === pathnames.length - 1;
+        return isLast ? (
+          <Typography
+            key={href}
+            variant="body1"
+            sx={{ color: "text.primary", fontWeight: 600 }}
+          >
+            {capitalize(value)}
+          </Typography>
+        ) : (
+          <Link
+            key={href}
+            component={NextLink}
+            href={href}
+            underline="none"
+            color="inherit"
+          >
+            <Typography
+              variant="body1"
+              sx={{ color: "text.primary", fontWeight: 600 }}
+            >
+              {capitalize(value)}
+            </Typography>
+          </Link>
+        );
+      })}
     </StyledBreadcrumbs>
   );
 }
