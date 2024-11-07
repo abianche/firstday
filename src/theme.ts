@@ -8,9 +8,8 @@ const theme = createTheme({
     colorSchemeSelector: "data-mui-color-scheme",
   },
   colorSchemes,
-  typography: {
-    fontFamily: "var(--font-roboto)",
-  },
+  typography,
+  shape,
 });
 
 export default theme;

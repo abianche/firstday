@@ -27,6 +27,12 @@ const Drawer = styled(MuiDrawer)({
   },
 });
 
+function stringAvatar(name: string) {
+  return {
+    children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+  };
+}
+
 export default function SideMenu() {
   return (
     <Drawer
@@ -40,11 +46,11 @@ export default function SideMenu() {
       <Box
         sx={{
           display: "flex",
-          mt: "calc(var(--template-frame-height, 0px) + 4px)",
+          mt: "4px",
           p: 1.5,
         }}
       >
-        SelectContent
+        First Day
       </Box>
       <Divider />
       <MenuContent />
@@ -59,9 +65,10 @@ export default function SideMenu() {
         }}
       >
         <Avatar
+          {...stringAvatar("Alessio Bianchetti")}
           sizes="small"
-          alt="Riley Carter"
-          src="/static/images/avatar/7.jpg"
+          alt="Alessio Bianchetti"
+          // src="/static/images/avatar/7.jpg"
           sx={{ width: 36, height: 36 }}
         />
         <Box sx={{ mr: "auto" }}>
@@ -69,10 +76,7 @@ export default function SideMenu() {
             variant="body2"
             sx={{ fontWeight: 500, lineHeight: "16px" }}
           >
-            Riley Carter
-          </Typography>
-          <Typography variant="caption" sx={{ color: "text.secondary" }}>
-            riley@email.com
+            Alessio Bianchetti
           </Typography>
         </Box>
         <OptionsMenu />
