@@ -3,6 +3,7 @@ import HelpRoundedIcon from "@mui/icons-material/HelpRounded";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
+import AddRounded from "@mui/icons-material/AddRounded";
 
 import {
   List,
@@ -18,6 +19,7 @@ import { usePathname } from "next/navigation";
 const mainListItems = [
   { text: "Home", href: "/home", icon: <HomeRoundedIcon /> },
   { text: "Tasks", href: "/tasks", icon: <AssignmentRoundedIcon /> },
+  { text: "New", href: "/add", icon: <AddRounded /> },
 ];
 
 const secondaryListItems = [
