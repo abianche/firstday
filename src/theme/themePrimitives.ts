@@ -1,6 +1,6 @@
-import { alpha, Shadows } from "@mui/material/styles";
-
 import { createTheme, PaletteMode } from "@mui/material";
+import { alpha, Shadows } from "@mui/material/styles";
+import { Roboto } from "next/font/google";
 
 const defaultTheme = createTheme();
 
@@ -322,8 +322,14 @@ export const colorSchemes = {
   },
 };
 
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const typography = {
-  fontFamily: "var(--font-roboto)",
+  fontFamily: roboto.style.fontFamily,
   h1: {
     fontSize: defaultTheme.typography.pxToRem(48),
     fontWeight: 600,
