@@ -136,6 +136,7 @@ export default function Editor() {
               scrollMarginTop: showMenuBar ? 50 : 0,
             },
           },
+          mb: 6,
         }}
       >
         <RichTextEditor
@@ -222,13 +223,21 @@ export default function Editor() {
         </RichTextEditor>
       </Box>
 
-      <Typography variant="h5" sx={{ mt: 5 }}>
-        Saved result:
+      <Typography variant="overline" sx={{ mb: 2 }}>
+        Storage data:
       </Typography>
 
       {submittedContent ? (
         <>
-          <pre style={{ marginTop: 10, overflow: "auto", maxWidth: "100%" }}>
+          <pre
+            style={{
+              marginTop: 10,
+              overflow: "auto",
+              maxWidth: "100%",
+              whiteSpace: "pre-wrap",
+              wordWrap: "break-word",
+            }}
+          >
             <code>{submittedContent}</code>
           </pre>
 
