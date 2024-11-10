@@ -4,18 +4,22 @@ import type { Metadata } from "next";
 import theme from "../theme";
 import "./globals.css";
 
+const title = "First Day";
+const description =
+  "An onboarding app and training platform for your employees.";
+
 export const metadata: Metadata = {
-  title: "First Day",
-  description: "An onboarding app and training platform for your employees.",
+  title,
+  description,
   robots: {
     index: false,
     follow: false,
   },
   openGraph: {
-    title: "First Day",
-    description: "An onboarding app and training platform for your employees.",
+    title,
+    description,
     url: "https://firstday-nine.vercel.app/",
-    siteName: "First Day",
+    siteName: title,
     images: [
       {
         url: "https://firstday-nine.vercel.app/preview.png",
@@ -28,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "First Day",
-    description: "An onboarding app and training platform for your employees.",
+    title,
+    description,
     images: ["https://firstday-nine.vercel.app/preview.png"],
   },
 };

@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json.schemastore.org/web-manifest",
+    "name": "First Day",
+    "short_name": "First Day",
+    "description": "An onboarding app and training platform for your employees.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#fff",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "48x48",
+            "type": "image/x-icon"
+        }
+    ]
+}
