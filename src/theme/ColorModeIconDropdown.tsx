@@ -1,15 +1,24 @@
 "use client";
 
-import * as React from "react";
 import DarkModeIcon from "@mui/icons-material/DarkModeRounded";
 import LightModeIcon from "@mui/icons-material/LightModeRounded";
+import {
+  IconButton,
+  Menu,
+  MenuItem,
+  Skeleton,
+  useColorScheme,
+} from "@mui/material";
 import { IconButtonOwnProps } from "@mui/material/IconButton";
-import { Box, IconButton, Menu, MenuItem, useColorScheme } from "@mui/material";
+import * as React from "react";
 
-export default function ColorModeIconDropdown(props: IconButtonOwnProps) {
+export default function ColorModeIconDropdown(
+  props: Readonly<IconButtonOwnProps>
+) {
   const { mode, systemMode, setMode } = useColorScheme();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -21,27 +30,17 @@ export default function ColorModeIconDropdown(props: IconButtonOwnProps) {
     handleClose();
   };
   if (!mode) {
-    return (
-      <Box
-        sx={(theme) => ({
-          verticalAlign: "bottom",
-          display: "inline-flex",
-          width: "2.25rem",
-          height: "2.25rem",
-          borderRadius: theme.shape.borderRadius,
-          border: "1px solid",
-          borderColor: theme.palette.divider,
-        })}
-      />
-    );
+    return <Skeleton variant="circular" width={34} height={34} />;
   }
-  const resolvedMode = (systemMode || mode) as "light" | "dark";
+
+  const resolvedMode = (systemMode ?? mode) as "light" | "dark";
   const icon = {
     light: <LightModeIcon />,
     dark: <DarkModeIcon />,
   }[resolvedMode];
+
   return (
-    <React.Fragment>
+    <>
       <IconButton
         onClick={handleClick}
         disableRipple
@@ -80,6 +79,6 @@ export default function ColorModeIconDropdown(props: IconButtonOwnProps) {
           Dark
         </MenuItem>
       </Menu>
-    </React.Fragment>
+    </>
   );
 }

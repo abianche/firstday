@@ -1,7 +1,8 @@
 "use client";
+
 import Header from "@/components/Header";
 import SideMenu from "@/components/SideMenu";
-import { Box, Stack, alpha } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 
 export default function HomeLayout({
   children,
@@ -13,12 +14,9 @@ export default function HomeLayout({
       <SideMenu />
       <Box
         component="main"
-        sx={(theme) => {
-          return {
-            flexGrow: 1,
-            backgroundColor: alpha(theme.palette.background.default, 1),
-            overflow: "auto",
-          };
+        sx={{
+          flexGrow: 1,
+          overflow: "auto",
         }}
       >
         <Stack
