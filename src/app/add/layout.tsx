@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import SideMenu from "@/components/SideMenu";
 import { Box, Stack } from "@mui/material";
 
-export default function HomeLayout({
+export default function AddLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -29,7 +29,6 @@ export default function HomeLayout({
           }}
         >
           <Header />
-          {/* <MainGrid /> */}
           {children}
         </Stack>
       </Box>
