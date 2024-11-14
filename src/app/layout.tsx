@@ -1,7 +1,9 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import type { Metadata } from "next";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
 import theme from "../theme";
 import "./globals.css";
 
@@ -47,6 +49,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <Analytics />
+        <SpeedInsights />
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline enableColorScheme />
