@@ -20,16 +20,14 @@ export default function HomeLayout({
         }}
       >
         <Stack
-          spacing={2}
+          spacing={1}
           sx={{
             alignItems: "center",
             mx: 3,
-            pb: 5,
-            mt: 0,
+            pb: 3,
           }}
         >
           <Header />
-          {/* <MainGrid /> */}
           {children}
         </Stack>
       </Box>
