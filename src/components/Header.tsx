@@ -1,8 +1,7 @@
 "use client";
 
-import ColorModeIconDropdown from "@/theme/ColorModeIconDropdown";
-import NavbarBreadcrumbs from "./NavbarBreadcrumbs";
 import { Stack } from "@mui/material";
+import NavbarBreadcrumbs from "./NavbarBreadcrumbs";
 
 export default function Header() {
   return (
@@ -19,7 +18,6 @@ export default function Header() {
       spacing={2}
     >
       <NavbarBreadcrumbs />
-      <ColorModeIconDropdown />
     </Stack>
   );
 }

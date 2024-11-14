@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import * as React from "react";
 import { dividerClasses } from "@mui/material/Divider";
 import { listItemIconClasses } from "@mui/material/ListItemIcon";
@@ -15,7 +15,8 @@ import {
   listClasses,
   ListItemText,
   ListItemIcon,
-} from '@mui/material';
+} from "@mui/material";
+import MenuItemThemeSelector from "@/components/MenuItemThemeSelector";
 
 const MenuItem = styled(MuiMenuItem)({
   margin: "2px 0",
@@ -41,10 +42,9 @@ export default function OptionsMenu() {
       </MenuButton>
       <Menu
         anchorEl={anchorEl}
-        id="menu"
+        id="options-menu"
         open={open}
         onClose={handleClose}
-        onClick={handleClose}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         sx={{
@@ -62,7 +62,7 @@ export default function OptionsMenu() {
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>Add another account</MenuItem>
+        <MenuItemThemeSelector />
         <MenuItem onClick={handleClose}>Settings</MenuItem>
         <Divider />
         <MenuItem
