@@ -1,18 +1,16 @@
 "use client";
 
 import useExtensions from "@/hooks/useExtensions";
-import { Lock, LockOpen, TextFields } from "@mui/icons-material";
-import { Box, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 import type { EditorOptions } from "@tiptap/core";
 import {
   LinkBubbleMenu,
-  MenuButton,
   RichTextEditor,
   TableBubbleMenu,
   insertImages,
   type RichTextEditorRef,
 } from "mui-tiptap";
-import { RefObject, useCallback, useState } from "react";
+import { RefObject, useCallback } from "react";
 import EditorMenuControls from "./EditorMenuControls";
 
 const exampleContent =
@@ -36,8 +34,6 @@ export default function Editor({ rteRef }: Readonly<EditorProps>) {
   const extensions = useExtensions({
     placeholder: "Add your own content here...",
   });
-  const [isEditable, setIsEditable] = useState(true);
-  const [showMenuBar, setShowMenuBar] = useState(true);
 
   const handleNewImageFiles = useCallback(
     (files: File[], insertPosition?: number): void => {
@@ -132,7 +128,7 @@ export default function Editor({ rteRef }: Readonly<EditorProps>) {
         // bar on your site).
         "& .ProseMirror": {
           "& h1, & h2, & h3, & h4, & h5, & h6": {
-            scrollMarginTop: showMenuBar ? 50 : 0,
+            scrollMarginTop: 0,
           },
         },
         mb: 6,
@@ -143,7 +139,6 @@ export default function Editor({ rteRef }: Readonly<EditorProps>) {
         immediatelyRender={false}
         extensions={extensions}
         content={exampleContent}
-        editable={isEditable}
         editorProps={{
           handleDrop: handleDrop,
           handlePaste: handlePaste,
@@ -154,49 +149,6 @@ export default function Editor({ rteRef }: Readonly<EditorProps>) {
           // example), but can be changed to "standard" to remove the outlined
           // field border from the editor
           variant: "outlined",
-          MenuBarProps: {
-            hide: !showMenuBar,
-          },
-          // Below is an example of adding a toggle within the outlined field
-          // for showing/hiding the editor menu bar, and a "submit" button for
-          // saving/viewing the HTML content
-          footer: (
-            <Stack
-              direction="row"
-              spacing={2}
-              sx={{
-                borderTopStyle: "solid",
-                borderTopWidth: 1,
-                borderTopColor: (theme) => theme.palette.divider,
-                py: 1,
-                px: 1.5,
-              }}
-            >
-              <MenuButton
-                value="formatting"
-                tooltipLabel={
-                  showMenuBar ? "Hide formatting" : "Show formatting"
-                }
-                size="small"
-                onClick={() => setShowMenuBar((currentState) => !currentState)}
-                selected={showMenuBar}
-                IconComponent={TextFields}
-              />
-
-              <MenuButton
-                value="formatting"
-                tooltipLabel={
-                  isEditable
-                    ? "Prevent edits (use read-only mode)"
-                    : "Allow edits"
-                }
-                size="small"
-                onClick={() => setIsEditable((currentState) => !currentState)}
-                selected={!isEditable}
-                IconComponent={isEditable ? Lock : LockOpen}
-              />
-            </Stack>
-          ),
         }}
       >
         {() => (

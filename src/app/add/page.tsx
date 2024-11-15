@@ -8,7 +8,8 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { RichTextEditorRef, RichTextReadOnly } from "mui-tiptap";
 import dynamic from "next/dynamic";
-import { useRef, useState } from "react";
+import * as R from "ramda";
+import { useEffect, useRef, useState } from "react";
 
 const EditorNoSSR = dynamic(() => import("@/components/Editor"), {
   ssr: false,
@@ -16,14 +17,18 @@ const EditorNoSSR = dynamic(() => import("@/components/Editor"), {
 });
 
 export default function Home() {
-  const [title, setTitle] = useState("");
   const dispatch = useAppDispatch();
   const editorContent = useAppSelector(selectContent);
-
+  const [title, setTitle] = useState("");
+  const rteRef = useRef<RichTextEditorRef>(null);
   const extensions = useExtensions({
     placeholder: "Add your own content here...",
   });
-  const rteRef = useRef<RichTextEditorRef>(null);
+
+  useEffect(() => {
+    // reset rte content
+    dispatch(setContent(""));
+  }, []);
 
   return (
     <>
@@ -70,7 +75,7 @@ export default function Home() {
           }}
         />
         <EditorNoSSR rteRef={rteRef} />
-        <Box mt={3}>
+        <Box mt={3} hidden={R.isEmpty(editorContent)}>
           <Typography variant="overline" sx={{ mb: 2 }}>
             Read-only saved snapshot:
           </Typography>
