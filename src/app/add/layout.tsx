@@ -1,8 +1,5 @@
-"use client";
-
-import Header from "@/components/Header";
 import SideMenu from "@/components/SideMenu";
-import { Box, Button, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 
 export default function AddLayout({
   children,
@@ -25,18 +22,6 @@ export default function AddLayout({
             pb: 3,
           }}
         >
-          <Stack
-            direction="row"
-            useFlexGap
-            spacing={2}
-            alignItems={"flex-start"}
-            justifyContent={"space-between"}
-          >
-            <Header />
-            <Button variant="contained" sx={{ mt: 2 }}>
-              Save
-            </Button>
-          </Stack>
           {children}
         </Stack>
       </Box>
