@@ -34,6 +34,7 @@ export type NestedMenuItemProps = Omit<MenuItemProps, "button"> & {
   MenuProps?: Partial<Omit<MenuProps, "children">>;
   button?: true;
   delay?: number;
+  menuPosition?: "left" | "right";
 };
 
 const NestedMenuItem = forwardRef<HTMLLIElement | null, NestedMenuItemProps>(
@@ -50,6 +51,7 @@ const NestedMenuItem = forwardRef<HTMLLIElement | null, NestedMenuItemProps>(
       ContainerProps: ContainerPropsProp = {},
       MenuProps,
       delay = 0,
+      menuPosition = "right",
       ...MenuItemProps
     } = props;
 
@@ -59,7 +61,7 @@ const NestedMenuItem = forwardRef<HTMLLIElement | null, NestedMenuItemProps>(
     useImperativeHandle(ref, () => menuItemRef.current!); // eslint-disable-line @typescript-eslint/no-non-null-assertion
 
     const containerRef = useRef<HTMLDivElement | null>(null);
-    //@ts-ignore
+    //@ts-expect-error: assignment ok
     useImperativeHandle(containerRefProp, () => containerRef.current);
 
     const menuContainerRef = useRef<HTMLDivElement | null>(null);
@@ -81,7 +83,9 @@ const NestedMenuItem = forwardRef<HTMLLIElement | null, NestedMenuItemProps>(
     };
 
     const handleMouseLeave = (e: MouseEvent<HTMLElement>) => {
-      timeoutRef.current && clearTimeout(timeoutRef.current);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
 
       setIsSubMenuOpen(false);
 
@@ -176,11 +180,11 @@ const NestedMenuItem = forwardRef<HTMLLIElement | null, NestedMenuItemProps>(
           style={{ pointerEvents: "none" }}
           anchorEl={menuItemRef.current}
           anchorOrigin={{
-            horizontal: "right",
+            horizontal: menuPosition === "right" ? "right" : "left",
             vertical: "top",
           }}
           transformOrigin={{
-            horizontal: "left",
+            horizontal: menuPosition === "right" ? "left" : "right",
             vertical: "top",
           }}
           open={open}

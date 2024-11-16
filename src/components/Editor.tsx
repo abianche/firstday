@@ -60,7 +60,7 @@ export default function Editor({ rteRef }: Readonly<EditorProps>) {
         position: insertPosition,
       });
     },
-    []
+    [rteRef]
   );
 
   // Allow for dropping images into the editor

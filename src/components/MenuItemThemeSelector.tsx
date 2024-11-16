@@ -1,11 +1,7 @@
 "use client";
 
 import {
-  dividerClasses,
-  listClasses,
-  Menu,
   MenuItem as MuiMenuItem,
-  paperClasses,
   Skeleton,
   styled,
   useColorScheme,
@@ -24,7 +20,7 @@ interface MenuItemThemeSelectorProps {
 export default function NestedMenuItemThemeSelector({
   parentMenuOpen,
 }: Readonly<MenuItemThemeSelectorProps>) {
-  const { mode, systemMode, setMode } = useColorScheme();
+  const { mode, setMode } = useColorScheme();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 

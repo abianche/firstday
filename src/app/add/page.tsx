@@ -28,7 +28,7 @@ export default function Home() {
   useEffect(() => {
     // reset rte content
     dispatch(setContent(""));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
