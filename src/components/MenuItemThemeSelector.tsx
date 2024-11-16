@@ -1,23 +1,26 @@
 "use client";
 
 import {
-  dividerClasses,
-  listClasses,
-  Menu,
   MenuItem as MuiMenuItem,
-  paperClasses,
   Skeleton,
   styled,
   useColorScheme,
 } from "@mui/material";
 import * as React from "react";
+import { NestedMenuItem } from "./NestedMenuItem";
 
 const MenuItem = styled(MuiMenuItem)({
   margin: "2px 0",
 });
 
-export default function MenuItemThemeSelector() {
-  const { mode, systemMode, setMode } = useColorScheme();
+interface MenuItemThemeSelectorProps {
+  parentMenuOpen: boolean;
+}
+
+export default function NestedMenuItemThemeSelector({
+  parentMenuOpen,
+}: Readonly<MenuItemThemeSelectorProps>) {
+  const { mode, setMode } = useColorScheme();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -42,16 +45,37 @@ export default function MenuItemThemeSelector() {
 
   return (
     <>
-      <MenuItem
+      <NestedMenuItem
+        parentMenuOpen={parentMenuOpen}
         onClick={handleClick}
         disableRipple
         aria-controls={open ? "color-scheme-menu" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
+        label="Theme"
+        sx={{
+          justifyContent: "space-evenly",
+        }}
       >
-        Theme
-      </MenuItem>
-      <Menu
+        <MenuItem
+          selected={mode === "system"}
+          onClick={(e) => handleMode(e, "system")}
+        >
+          System
+        </MenuItem>
+        <MenuItem
+          selected={mode === "light"}
+          onClick={(e) => handleMode(e, "light")}
+        >
+          Light
+        </MenuItem>
+        <MenuItem
+          selected={mode === "dark"}
+          onClick={(e) => handleMode(e, "dark")}
+        >
+          Dark
+        </MenuItem>
+      </NestedMenuItem>
+      {/* <Menu
         anchorEl={anchorEl}
         id="theme-menu"
         open={open}
@@ -97,7 +121,7 @@ export default function MenuItemThemeSelector() {
         >
           Dark
         </MenuItem>
-      </Menu>
+      </Menu> */}
     </>
   );
 }

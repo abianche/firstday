@@ -1,9 +1,12 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import type { Metadata } from "next";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
 import theme from "../theme";
 import "./globals.css";
+import { StoreProvider } from "./StoreProvider";
 
 const title = "First Day";
 const description =
@@ -45,16 +48,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline enableColorScheme />
-            <InitColorSchemeScript attribute="data-mui-color-scheme" />
-            <main>{children}</main>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body>
+          <Analytics />
+          <SpeedInsights />
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              <CssBaseline enableColorScheme />
+              <InitColorSchemeScript attribute="data-mui-color-scheme" />
+              <main>{children}</main>
+            </ThemeProvider>
+          </AppRouterCacheProvider>
+        </body>
+      </html>
+    </StoreProvider>
   );
 }

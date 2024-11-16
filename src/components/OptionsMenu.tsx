@@ -16,7 +16,7 @@ import {
   ListItemText,
   ListItemIcon,
 } from "@mui/material";
-import MenuItemThemeSelector from "@/components/MenuItemThemeSelector";
+import NestedMenuItemThemeSelector from "@/components/MenuItemThemeSelector";
 
 const MenuItem = styled(MuiMenuItem)({
   margin: "2px 0",
@@ -62,7 +62,7 @@ export default function OptionsMenu() {
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
         <Divider />
-        <MenuItemThemeSelector />
+        <NestedMenuItemThemeSelector parentMenuOpen={open} />
         <MenuItem onClick={handleClose}>Settings</MenuItem>
         <Divider />
         <MenuItem
