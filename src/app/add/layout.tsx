@@ -1,3 +1,4 @@
+import AppNavbar from "@/components/AppNavbar";
 import SideMenu from "@/components/SideMenu";
 import { Box, Stack } from "@mui/material";
 
@@ -8,6 +9,7 @@ export default function AddLayout({
 }>) {
   return (
     <Box sx={{ display: "flex" }}>
+      <AppNavbar />
       <SideMenu />
       <Box
         sx={{

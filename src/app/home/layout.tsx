@@ -1,5 +1,6 @@
 "use client";
 
+import AppNavbar from "@/components/AppNavbar";
 import Header from "@/components/Header";
 import SideMenu from "@/components/SideMenu";
 import { Box, Stack } from "@mui/material";
@@ -11,6 +12,7 @@ export default function HomeLayout({
 }>) {
   return (
     <Box sx={{ display: "flex" }}>
+      <AppNavbar />
       <SideMenu />
       <Box
         component="main"
@@ -25,6 +27,7 @@ export default function HomeLayout({
             alignItems: "center",
             mx: 3,
             pb: 3,
+            mt: { xs: 8, md: 0 },
           }}
         >
           <Header />
