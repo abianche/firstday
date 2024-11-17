@@ -1,4 +1,4 @@
-name: Run CPD
+name: CPD
 
 on:
   pull_request:
