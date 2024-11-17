@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
+  cpd:
     runs-on: ubuntu-latest
 
     steps:
