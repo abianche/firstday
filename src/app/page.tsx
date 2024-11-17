@@ -1,13 +1,19 @@
-import RocketIcon from "@mui/icons-material/Rocket";
-import { Button } from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
+import { Box, Button } from "@mui/material";
+import NextLink from "next/link";
 
-export default function Home() {
+export default function Root() {
   return (
-    <div style={{ padding: "2rem" }}>
+    <Box justifyItems={"center"} sx={{ p: 2, width: "100%", margin: "auto" }}>
       <h1>Welcome to FirstDay</h1>
-      <Button variant="contained" endIcon={<RocketIcon />}>
-        Send
+      <Button
+        component={NextLink}
+        href="/home"
+        variant="contained"
+        startIcon={<HomeIcon />}
+      >
+        Go Home
       </Button>
-    </div>
+    </Box>
   );
 }
