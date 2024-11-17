@@ -43,5 +43,8 @@ next-env.d.ts
 # drizzle
 drizzle/meta
 
+# jscpd
+/report
+
 # temp
 temp
