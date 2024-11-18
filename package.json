@@ -73,7 +73,7 @@
     "bcrypt": "^5.1.1",
     "dayjs": "^1.11.13",
     "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.36.2",
+    "drizzle-orm": "^0.36.3",
     "drizzle-zod": "^0.5.1",
     "jsonwebtoken": "^9.0.2",
     "mui-tiptap": "^1.13.0",
