@@ -1,7 +1,9 @@
+import { Box } from "@mui/material";
+
 export default function Home() {
   return (
-    <div style={{ padding: "2rem" }}>
+    <Box width="100%">
       <h1>Welcome to Tasks</h1>
-    </div>
+    </Box>
   );
 }

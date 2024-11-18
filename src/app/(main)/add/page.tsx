@@ -1,15 +1,14 @@
 "use client";
 
 import EditorLoading from "@/components/EditorLoading";
-import Header from "@/components/Header";
 import useExtensions from "@/hooks/useExtensions";
 import { selectContent, setContent } from "@/store/editor/editorSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import { RichTextEditorRef, RichTextReadOnly } from "mui-tiptap";
 import dynamic from "next/dynamic";
 import * as R from "ramda";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 
 const EditorNoSSR = dynamic(() => import("@/components/Editor"), {
   ssr: false,
@@ -31,18 +30,11 @@ export default function Home() {
   }, [dispatch]);
 
   return (
-    <>
-      <Stack
-        direction="row"
-        useFlexGap
-        spacing={2}
-        alignItems={"flex-start"}
-        justifyContent={"space-between"}
-      >
-        <Header />
+    <Fragment>
+      <Box alignSelf="end" position="absolute">
         <Button
           variant="contained"
-          sx={{ mt: 2 }}
+          sx={{ mt: 0 }}
           onClick={() => {
             const rteContent = rteRef.current?.editor?.getHTML() ?? "";
             console.log(rteContent);
@@ -51,7 +43,7 @@ export default function Home() {
         >
           Save
         </Button>
-      </Stack>
+      </Box>
 
       <Box
         component="div"
@@ -87,6 +79,6 @@ export default function Home() {
           />
         </Box>
       </Box>
-    </>
+    </Fragment>
   );
 }

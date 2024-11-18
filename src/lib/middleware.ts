@@ -15,7 +15,7 @@ export function withAuth(handler: (req: NextRequest) => Promise<NextResponse>) {
       const decoded = verifyToken(token);
       req.headers.set("user", JSON.stringify(decoded)); // Attach user info to request
       return handler(req);
-    } catch (error) {
+    } catch (_error) {
       return NextResponse.json({ message: "Invalid token" }, { status: 401 });
     }
   };

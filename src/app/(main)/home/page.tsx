@@ -1,9 +1,9 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import NextLink from "next/link";
 
 export default function Home() {
   return (
-    <div style={{ padding: "2rem" }}>
+    <Box width="100%">
       <h1>Welcome to Home</h1>
       <Button
         variant="contained"
@@ -12,6 +12,6 @@ export default function Home() {
       >
         Tranings
       </Button>
-    </div>
+    </Box>
   );
 }

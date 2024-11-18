@@ -46,10 +46,8 @@ export default async function LicensesPage() {
   }
 
   return (
-    <Box sx={{ p: 2, width: "100%", margin: "auto" }}>
-      <Typography variant="h1" gutterBottom>
-        3rd party open source licenses
-      </Typography>
+    <Box width="100%">
+      <h1>3rd party open source licenses</h1>
 
       <Stack spacing={2} direction="column">
         {R.map(

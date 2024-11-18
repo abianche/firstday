@@ -1,20 +1,8 @@
-import * as React from "react";
 import { drawerClasses } from "@mui/material/Drawer";
-import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
-import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
 
-import MenuButton from "./MenuButton";
 import MenuContent from "./MenuContent";
 
-import {
-  Avatar,
-  Box,
-  Button,
-  Divider,
-  Drawer,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, Divider, Drawer, Stack, Typography } from "@mui/material";
 import OptionsMenu from "./OptionsMenu";
 
 interface SideMenuMobileProps {
