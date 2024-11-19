@@ -11,6 +11,7 @@ import { StoreProvider } from "./StoreProvider";
 const title = "First Day";
 const description =
   "An onboarding app and training platform for your employees";
+const url = "https://firstday-main.vercel.app";
 
 export const metadata: Metadata = {
   title,
@@ -26,11 +27,11 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url: "https://firstday-nine.vercel.app/",
+    url,
     siteName: title,
     images: [
       {
-        url: "https://firstday-nine.vercel.app/preview.jpg",
+        url: `${url}/preview.jpg`,
         width: 1200,
         height: 630,
         alt: "Coming Soon",
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["https://firstday-nine.vercel.app/preview.jpg"],
+    images: [`${url}/preview.jpg`],
   },
 };
 
