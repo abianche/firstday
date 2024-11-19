@@ -1,15 +1,15 @@
-name: Tests
+name: CPD
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
 
 jobs:
-  test:
+  cpd:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,8 +21,8 @@ jobs:
         with:
           node-version: "lts/*"
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install jscpd
+        run: npm install -g jscpd
 
-      - name: Run tests
-        run: npm run test
+      - name: Run jscpd
+        run: jscpd ./src

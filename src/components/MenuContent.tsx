@@ -1,9 +1,10 @@
+import AddRounded from "@mui/icons-material/AddRounded";
 import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
 import HelpRoundedIcon from "@mui/icons-material/HelpRounded";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
-import AddRounded from "@mui/icons-material/AddRounded";
 
 import {
   List,
@@ -25,6 +26,7 @@ const mainListItems = [
 const secondaryListItems = [
   { text: "Settings", href: "/settings", icon: <SettingsRoundedIcon /> },
   { text: "About", href: "/about", icon: <InfoRoundedIcon /> },
+  { text: "Licenses", href: "/licenses", icon: <LibraryBooksIcon /> },
   { text: "Feedback", href: "/feedback", icon: <HelpRoundedIcon /> },
 ];
 

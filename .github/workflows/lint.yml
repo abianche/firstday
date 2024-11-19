@@ -1,12 +1,11 @@
-name: Run Lint
+name: Lint
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: "0 0 * * 1"
 
 jobs:
   lint:

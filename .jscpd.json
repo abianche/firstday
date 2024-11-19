@@ -1,0 +1,20 @@
+{
+    "threshold": 5,
+    "format": [
+        "javascript",
+        "typescript",
+        "tsx",
+        "css"
+    ],
+    "reporters": [
+        "console",
+        "html"
+    ],
+    "ignore": [
+        "**/node_modules/**",
+        "**/dist/**",
+        "**/*.ico",
+        "**/*.webmanifest"
+    ],
+    "gitignore": true
+}
