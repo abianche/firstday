@@ -3,14 +3,14 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import theme from "../theme";
 import "./globals.css";
 import { StoreProvider } from "./StoreProvider";
 
 const title = "First Day";
 const description =
-  "An onboarding app and training platform for your employees.";
+  "An onboarding app and training platform for your employees";
 
 export const metadata: Metadata = {
   title,
@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   robots: {
     index: false,
     follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
   },
   openGraph: {
     title,
@@ -26,10 +30,10 @@ export const metadata: Metadata = {
     siteName: title,
     images: [
       {
-        url: "https://firstday-nine.vercel.app/preview.png",
+        url: "https://firstday-nine.vercel.app/preview.jpg",
         width: 1200,
-        height: 600,
-        alt: "First Day preview image",
+        height: 630,
+        alt: "Coming Soon",
       },
     ],
     type: "website",
@@ -38,8 +42,15 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["https://firstday-nine.vercel.app/preview.png"],
+    images: ["https://firstday-nine.vercel.app/preview.jpg"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d1017" },
+  ],
 };
 
 export default function RootLayout({
