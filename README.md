@@ -42,6 +42,7 @@ Create a `.env` file in the root of the project with the following variables:
 ```plaintext
 # PostgreSQL Database Configuration
 POSTGRES_URL=postgres://username:password@localhost:5432/database
+JWT_SECRET=your_jwt_secret_here
 ```
 
 Install the dependencies:
