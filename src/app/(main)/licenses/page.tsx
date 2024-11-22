@@ -1,6 +1,5 @@
 import LinkIcon from "@mui/icons-material/Link";
 import {
-  Box,
   Button,
   Card,
   CardContent,
@@ -11,6 +10,7 @@ import {
 import fs from "fs";
 import path from "path";
 import * as R from "ramda";
+import { Fragment } from "react";
 
 interface IPackageLicenseMeta {
   author: string;
@@ -46,7 +46,7 @@ export default async function LicensesPage() {
   }
 
   return (
-    <Box width="100%">
+    <Fragment>
       <h1>3rd party open source licenses</h1>
 
       <Stack spacing={2} direction="column">
@@ -89,6 +89,6 @@ export default async function LicensesPage() {
           filteredLicenses
         )}
       </Stack>
-    </Box>
+    </Fragment>
   );
 }

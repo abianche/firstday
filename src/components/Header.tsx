@@ -12,8 +12,6 @@ export default function Header() {
         width: "100%",
         alignItems: "center",
         justifyContent: "space-between",
-        maxWidth: { sm: "100%", md: "1700px" },
-        pt: 1.5,
       }}
       spacing={2}
     >
