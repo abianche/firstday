@@ -9,28 +9,26 @@
 
 An onboarding app and training platform for your employees.
 
-### ⚠️ **UNDER INITIAL DEVELOPMENT** ⚠️
+---
 
-🚧 **First Day is a work in progress!** 🚧  
+### ⚠️ **UNDER INITIAL DEVELOPMENT**
+
 We are actively building the foundation of this project, and it is not yet ready for production use.  
 
 ### What does this mean?
 - 🔧 Features are incomplete and may change frequently.
 - ❗ Breaking changes can occur as we iterate.
 - 🐛 Bugs and unexpected behavior should be expected.
+- 📚 Any documentation found in this repository may be outdated.
 
 We appreciate your patience as we work toward our first stable release.  
 Stay tuned for updates and feel free to follow our progress or submit ideas in the [Issues](https://github.com/abianche/firstday/issues) section.
 
 ## Getting Started
 
-This is a [Next.js](https://nextjs.org/) project deployed on [Vercel](https://vercel.com/) with a PostgreSQL database using [Drizzle ORM](https://orm.drizzle.com/). The project is containerized using Docker and Docker Compose to streamline development and deployment.
+This project uses [Next.js](https://nextjs.org/) for both frontend and backend development, with [Material UI](https://mui.com/) for the user interface. It connects to a [PostgreSQL](https://www.postgresql.org/) database managed with [Drizzle ORM](https://orm.drizzle.com/). Authentication is handled using [JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-### Requirements
-
-- [Docker](https://www.docker.com/) (v20.10 or higher)
-- [Docker Compose](https://docs.docker.com/compose/) (v1.29 or higher)
-- [Node.js](https://nodejs.org/) (if you plan to run scripts locally)
+Testing is done with [Jest](https://jestjs.io/) for unit tests and [Playwright](https://playwright.dev/) for end-to-end tests. The application is deployed on [Vercel](https://vercel.com/). The project is containerized with [Docker](https://www.docker.com/).
 
 ### Local setup
 
