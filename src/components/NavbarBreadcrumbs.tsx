@@ -29,7 +29,7 @@ export default function NavbarBreadcrumbs() {
       aria-label="breadcrumb"
       separator={<NavigateNextRoundedIcon fontSize="small" />}
     >
-      <Link component={NextLink} href="/" underline="none" color="inherit">
+      <Link component={NextLink} href="/" underline="none" color="white">
         <Typography variant="body1">First Day</Typography>
       </Link>
       {pathnames.map((value, index) => {
@@ -40,7 +40,7 @@ export default function NavbarBreadcrumbs() {
           <Typography
             key={href}
             variant="body1"
-            sx={{ color: "text.primary", fontWeight: 600 }}
+            sx={{ color: "white", fontWeight: 600 }}
           >
             {capitalize(value)}
           </Typography>
@@ -50,12 +50,9 @@ export default function NavbarBreadcrumbs() {
             component={NextLink}
             href={href}
             underline="none"
-            color="inherit"
+            color="white"
           >
-            <Typography
-              variant="body1"
-              sx={{ color: "text.primary", fontWeight: 600 }}
-            >
+            <Typography variant="body1" sx={{ fontWeight: 600 }}>
               {capitalize(value)}
             </Typography>
           </Link>

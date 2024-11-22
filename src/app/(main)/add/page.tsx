@@ -31,19 +31,22 @@ export default function Home() {
 
   return (
     <Fragment>
-      <Box alignSelf="end" position="absolute">
-        <Button
-          variant="contained"
-          sx={{ mt: 0 }}
-          onClick={() => {
-            const rteContent = rteRef.current?.editor?.getHTML() ?? "";
-            console.log(rteContent);
-            dispatch(setContent(rteContent));
-          }}
-        >
-          Save
-        </Button>
-      </Box>
+      <Button
+        variant="contained"
+        sx={{
+          position: "fixed",
+          top: "10px",
+          right: "20px",
+          zIndex: 1200,
+        }}
+        onClick={() => {
+          const rteContent = rteRef.current?.editor?.getHTML() ?? "";
+          console.log(rteContent);
+          dispatch(setContent(rteContent));
+        }}
+      >
+        Save
+      </Button>
 
       <Box
         component="div"
