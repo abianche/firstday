@@ -7,7 +7,7 @@ const envSchema = z.object({
     .optional(),
   POSTGRES_URL: z.string(),
   JWT_SECRET: z.string(),
-  VERCEL: z.number().optional(),
+  VERCEL: z.string().optional(),
 });
 
 const env = envSchema.parse(process.env);
