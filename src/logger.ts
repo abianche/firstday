@@ -30,7 +30,7 @@ const logFormat = format.combine(
   )
 );
 
-const logsFolder = env.VERCEL ? "tmp" : "logs";
+const logsFolder = env.VERCEL === "1" ? "tmp" : "logs";
 
 /**
  * Creates a daily rotating log transport.
