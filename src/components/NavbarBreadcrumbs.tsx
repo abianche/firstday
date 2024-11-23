@@ -29,19 +29,19 @@ export default function NavbarBreadcrumbs() {
       separator={<NavigateNextRoundedIcon fontSize="small" />}
     >
       <Link component={NextLink} href="/" underline="none">
-        <Typography>First Day</Typography>
+        <Typography color="white">First Day</Typography>
       </Link>
       {pathnames.map((value, index) => {
         const href = "/" + pathnames.slice(0, index + 1).join("/");
 
         const isLast = index === pathnames.length - 1;
         return isLast ? (
-          <Typography key={href} sx={{ fontWeight: 600 }}>
+          <Typography key={href} sx={{ fontWeight: 600 }} color="white">
             {capitalize(value)}
           </Typography>
         ) : (
           <Link key={href} component={NextLink} href={href} underline="none">
-            <Typography sx={{ fontWeight: 600 }}>
+            <Typography sx={{ fontWeight: 600 }} color="white">
               {capitalize(value)}
             </Typography>
           </Link>

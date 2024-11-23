@@ -36,6 +36,7 @@ export default function MainLayout({
           ml: { sm: `${drawerWidth}px` },
         }}
         color="primary"
+        enableColorOnDark
       >
         <Toolbar>
           <IconButton
