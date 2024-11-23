@@ -1,23 +1,19 @@
-// app/api/logs/route.ts
 import env from "@/env";
 import logger from "@/logger";
 import AdmZip from "adm-zip";
 import fs from "fs/promises";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import path from "path";
+import * as R from "ramda";
 
 const createLogsZip = async () => {
   const zip = new AdmZip();
   const logsDir = path.join(process.cwd(), "logs");
 
   try {
-    // Get all log files
     const files = await fs.readdir(logsDir);
-    const logFiles = files.filter(
-      (file) => file.endsWith(".log") || file.endsWith(".gz")
-    );
+    const logFiles = R.filter((file) => file.endsWith(".log"), files);
 
-    // Add each log file to the zip
     for (const file of logFiles) {
       const filePath = path.join(logsDir, file);
       const stats = await fs.stat(filePath);
@@ -27,10 +23,9 @@ const createLogsZip = async () => {
       }
     }
 
-    // Generate the zip buffer
     return zip.toBuffer();
   } catch (error) {
-    console.error("Error creating zip file:", error);
+    logger.error("Error creating zip file:", error);
     throw error;
   }
 };
