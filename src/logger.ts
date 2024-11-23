@@ -57,7 +57,7 @@ const createLogRotateTransport = (
 /**
  * Checks if the application is running on Vercel
  */
-const isVercel = process.env.VERCEL === "1";
+const isVercel = env.VERCEL === "1";
 
 const logger = createLogger({
   level: env.LOG_LEVEL ?? "info",
