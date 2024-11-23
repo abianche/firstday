@@ -30,8 +30,6 @@ const logFormat = format.combine(
   )
 );
 
-const logsFolder = env.VERCEL === "1" ? "tmp" : "logs";
-
 /**
  * Creates a daily rotating log transport.
  *
@@ -48,7 +46,7 @@ const createLogRotateTransport = (
   level?: string
 ): DailyRotateFile =>
   new DailyRotateFile({
-    filename: `${logsFolder}/${filename}-%DATE%.log`,
+    filename: `logs/${filename}-%DATE%.log`,
     datePattern: "YYYY-MM-DD",
     level: level ?? "info",
     maxSize: "10m",
@@ -56,19 +54,28 @@ const createLogRotateTransport = (
     zippedArchive: true,
   });
 
+/**
+ * Checks if the application is running on Vercel
+ */
+const isVercel = process.env.VERCEL === "1";
+
 const logger = createLogger({
   level: env.LOG_LEVEL ?? "info",
   format: logFormat,
-  transports: [
-    createLogRotateTransport("combined"),
-    createLogRotateTransport("error", "error"),
-  ],
-  exceptionHandlers: [createLogRotateTransport("exceptions")],
-  rejectionHandlers: [createLogRotateTransport("rejections")],
 });
 
+// Add file transports only when not running on Vercel
+if (!isVercel) {
+  logger.add(createLogRotateTransport("combined"));
+  logger.add(createLogRotateTransport("error", "error"));
+
+  // Add exception and rejection handlers
+  logger.exceptions.handle(createLogRotateTransport("exceptions"));
+  logger.rejections.handle(createLogRotateTransport("rejections"));
+}
+
 // Avoid logging to the console in production
-if (env.NODE_ENV !== "production") {
+if (env.NODE_ENV !== "production" || isVercel) {
   logger.add(
     new transports.Console({
       format: format.combine(
