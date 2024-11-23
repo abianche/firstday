@@ -1,7 +1,8 @@
+import env from "@/env";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET ?? "your-secret-key"; // Replace in production
+const JWT_SECRET = env.JWT_SECRET ?? "your-secret-key"; // Replace in production
 
 // Hash password
 export async function hashPassword(password: string): Promise<string> {

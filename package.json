@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean": "rimraf logs coverage test-results playwright-report report",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -79,7 +80,6 @@
     "@vercel/speed-insights": "^1.1.0",
     "bcrypt": "^5.1.1",
     "dayjs": "^1.11.13",
-    "dotenv": "^16.4.5",
     "drizzle-orm": "^0.36.4",
     "drizzle-zod": "^0.5.1",
     "jsonwebtoken": "^9.0.2",
@@ -90,14 +90,16 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.2",
-    "redux": "^5.0.1"
+    "redux": "^5.0.1",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",
     "@types/bcrypt": "^5.0.2",
     "@types/jest": "^29.5.14",
     "@types/jsonwebtoken": "^9.0.7",
-    "@types/node": "^22.9.1",
+    "@types/node": "^22.9.3",
     "@types/pg": "^8.11.10",
     "@types/ramda": "^0.30.2",
     "@types/react": "^18.3.12",
@@ -108,9 +110,10 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jscpd": "^4.0.5",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2",
+    "typescript": "^5.6.3",
     "webpack-license-plugin": "^4.5.0"
   }
 }
