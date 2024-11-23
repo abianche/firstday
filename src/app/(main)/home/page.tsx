@@ -10,7 +10,7 @@ export default function Home() {
         LinkComponent={NextLink}
         href="/home/trainings"
       >
-        Tranings
+        Trainings
       </Button>
     </Box>
   );
