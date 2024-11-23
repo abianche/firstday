@@ -30,6 +30,8 @@ const logFormat = format.combine(
   )
 );
 
+const logsFolder = env.VERCEL ? "tmp" : "logs";
+
 /**
  * Creates a daily rotating log transport.
  *
@@ -46,7 +48,7 @@ const createLogRotateTransport = (
   level?: string
 ): DailyRotateFile =>
   new DailyRotateFile({
-    filename: `logs/${filename}-%DATE%.log`,
+    filename: `${logsFolder}/${filename}-%DATE%.log`,
     datePattern: "YYYY-MM-DD",
     level: level ?? "info",
     maxSize: "10m",

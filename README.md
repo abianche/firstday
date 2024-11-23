@@ -28,7 +28,9 @@ Stay tuned for updates and feel free to follow our progress or submit ideas in t
 
 This project uses [Next.js](https://nextjs.org/) for both frontend and backend development, with [Material UI](https://mui.com/) for the user interface. It connects to a [PostgreSQL](https://www.postgresql.org/) database managed with [Drizzle ORM](https://orm.drizzle.com/). Authentication is handled using [JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-Testing is done with [Jest](https://jestjs.io/) for unit tests and [Playwright](https://playwright.dev/) for end-to-end tests. The application is deployed on [Vercel](https://vercel.com/). The project is containerized with [Docker](https://www.docker.com/).
+Testing is done with [Jest](https://jestjs.io/) for unit tests and [Playwright](https://playwright.dev/) for end-to-end tests. The application is deployed on [Vercel](https://vercel.com/). Logging is done with [Winston](https://github.com/winstonjs/winston).
+
+The project is containerized with [Docker](https://www.docker.com/).
 
 ### Local setup
 
