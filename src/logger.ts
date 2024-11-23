@@ -80,7 +80,8 @@ if (env.NODE_ENV !== "production" || isVercel) {
     new transports.Console({
       format: format.combine(
         formatLevelUpperCase(),
-        format.colorize(),
+        // Only add colors if not on Vercel
+        !isVercel ? format.colorize() : format.uncolorize(),
         format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
         format.printf(
           ({ timestamp, level, message }) =>
