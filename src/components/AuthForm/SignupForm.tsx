@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
-import { TextField, Button, Typography, Box, Link } from "@mui/material";
-import { useRouter } from "next/navigation";
 import { signup } from "@/app/auth/actions";
+import { getErrorMessage } from "@/lib/utils/generics";
+import { Box, Button, Link, TextField, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 export default function SignupForm() {
   const [formValues, setFormValues] = useState({
@@ -37,8 +38,8 @@ export default function SignupForm() {
         password: formValues.password,
       });
       router.push("/auth/login");
-    } catch (err: any) {
-      setError(err.message);
+    } catch (error) {
+      setError(getErrorMessage(error));
     }
   };
 

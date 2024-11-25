@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
-import { TextField, Button, Typography, Box, Link } from "@mui/material";
-import { useRouter } from "next/navigation";
 import { login } from "@/app/auth/actions";
+import { getErrorMessage } from "@/lib/utils/generics";
+import { Box, Button, Link, TextField, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 export default function LoginForm() {
   const [formValues, setFormValues] = useState({ email: "", password: "" });
@@ -26,8 +27,8 @@ export default function LoginForm() {
 
       console.log("Token:", token); // For debugging, replace this with your actual token handling logic
       router.push("/home");
-    } catch (err: any) {
-      setError(err.message);
+    } catch (error) {
+      setError(getErrorMessage(error));
     }
   };
 
@@ -72,7 +73,7 @@ export default function LoginForm() {
         Log In
       </Button>
       <Typography textAlign="center" mt={2}>
-        Don't have an account?{" "}
+        {"Don't have an account? "}
         <Link href="/auth/signup" underline="hover">
           Sign Up
         </Link>
