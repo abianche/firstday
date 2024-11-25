@@ -1,4 +1,4 @@
-import { getErrorMessage } from "./generics";
+import { getErrorMessage } from "./genericUtils";
 
 describe("getErrorMessage", () => {
   it("should return the message from an Error object", () => {

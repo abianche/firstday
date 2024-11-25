@@ -1,8 +1,9 @@
 "use client";
 
 import { signup } from "@/app/auth/actions";
-import { getErrorMessage } from "@/lib/utils/generics";
+import { getErrorMessage } from "@/lib/utils/genericUtils";
 import { Box, Button, Link, TextField, Typography } from "@mui/material";
+import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -111,7 +112,7 @@ export default function SignupForm() {
       </Button>
       <Typography textAlign="center" mt={2}>
         Already have an account?{" "}
-        <Link href="/auth/login" underline="hover">
+        <Link component={NextLink} href="/auth/login" underline="hover">
           Log In
         </Link>
       </Typography>

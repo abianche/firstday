@@ -1,8 +1,9 @@
 "use client";
 
 import { login } from "@/app/auth/actions";
-import { getErrorMessage } from "@/lib/utils/generics";
+import { getErrorMessage } from "@/lib/utils/genericUtils";
 import { Box, Button, Link, TextField, Typography } from "@mui/material";
+import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -74,7 +75,7 @@ export default function LoginForm() {
       </Button>
       <Typography textAlign="center" mt={2}>
         {"Don't have an account? "}
-        <Link href="/auth/signup" underline="hover">
+        <Link component={NextLink} href="/auth/signup" underline="hover">
           Sign Up
         </Link>
       </Typography>
