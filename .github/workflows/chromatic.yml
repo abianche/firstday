@@ -1,19 +1,25 @@
-name: Chromatic
+name: "Chromatic"
 
 on:
+  schedule:
+    - cron: "0 0 * * 1"
   workflow_dispatch:
 
 jobs:
   chromatic:
+    name: Run Chromatic
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Install dependencies
-        run: npm install
-
-      - name: Publish to Chromatic
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-        run: npm run chromatic
+        run: npm ci
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
