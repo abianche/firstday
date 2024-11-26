@@ -20,13 +20,18 @@
     "db:check": "drizzle-kit check",
     "db:studio": "drizzle-kit studio",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abianche/firstday.git"
   },
-  "author": "Alessio Bianchetti <abianche@protonmail.com> (abianche.github.io)",
+  "author": {
+    "name": "Alessio Bianchetti",
+    "email": "abianche@protonmail.com",
+    "url": "abianche.github.io"
+  },
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/abianche/firstday/issues"
@@ -118,6 +123,7 @@
     "@types/ramda": "^0.30.2",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "chromatic": "^11.19.0",
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.28.1",
     "eslint": "^9.14.0",
