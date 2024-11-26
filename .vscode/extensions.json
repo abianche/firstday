@@ -8,6 +8,7 @@
     "esbenp.prettier-vscode",
     "sonarsource.sonarlint-vscode",
     "redhat.vscode-yaml",
-    "ms-playwright.playwright"
+    "ms-playwright.playwright",
+    "unifiedjs.vscode-mdx"
   ]
 }

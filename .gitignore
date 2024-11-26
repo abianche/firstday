@@ -58,3 +58,6 @@ temp
 
 # logs
 /logs
+
+# storybook
+*storybook.log
