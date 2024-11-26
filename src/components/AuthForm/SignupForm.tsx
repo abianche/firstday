@@ -6,6 +6,7 @@ import { Box, Button, Link, TextField, Typography } from "@mui/material";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import Logo from "./Logo";
 
 export default function SignupForm() {
   const [formValues, setFormValues] = useState({
@@ -48,8 +49,9 @@ export default function SignupForm() {
     <Box
       component="form"
       onSubmit={handleSubmit}
-      sx={{ width: "100%", maxWidth: 400 }}
+      sx={{ width: "80%", maxWidth: 400, mx: "auto", textAlign: "center" }}
     >
+      <Logo />
       <Typography variant="h4" textAlign="center" mb={2}>
         Sign Up
       </Typography>
