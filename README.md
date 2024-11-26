@@ -1,5 +1,6 @@
 # First Day
 
+![License](https://img.shields.io/badge/license-Apache%202.0-blue)
 [![Tests](https://github.com/abianche/firstday/actions/workflows/test.yml/badge.svg)](https://github.com/abianche/firstday/actions/workflows/test.yml)
 [![E2E](https://github.com/abianche/firstday/actions/workflows/e2e.yml/badge.svg)](https://github.com/abianche/firstday/actions/workflows/e2e.yml)
 [![Lint](https://github.com/abianche/firstday/actions/workflows/lint.yml/badge.svg)](https://github.com/abianche/firstday/actions/workflows/lint.yml)

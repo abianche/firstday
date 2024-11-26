@@ -30,9 +30,9 @@
   "author": {
     "name": "Alessio Bianchetti",
     "email": "abianche@protonmail.com",
-    "url": "abianche.github.io"
+    "url": "https://abianche.github.io"
   },
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/abianche/firstday/issues"
   },
