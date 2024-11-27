@@ -11,11 +11,20 @@ const dependenciesPaths = R.map(
 );
 
 const nextConfig: NextConfig = {
-  webpack: (config: WebpackConfig) => {
+  webpack: (config: WebpackConfig, { isServer }) => {
     config.plugins = config.plugins || [];
     config.plugins.push(
       new LicensePlugin({ includePackages: () => dependenciesPaths })
     );
+
+    if (!isServer) {
+      config.module = config.module || {};
+      config.module.rules = config.module.rules || [];
+      config.module.rules.push({
+        test: /\.stories\.tsx?$/,
+        loader: "ignore-loader", // Ignore stories in production
+      });
+    }
 
     return config;
   },
