@@ -1,12 +1,6 @@
-import LinkIcon from "@mui/icons-material/Link";
-import {
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  Stack,
-  Typography,
-} from "@mui/material";
+import LicenseCard from "@/components/LicenseCard";
+import logger from "@/logger";
+import { Stack } from "@mui/material";
 import fs from "fs";
 import path from "path";
 import * as R from "ramda";
@@ -33,17 +27,7 @@ export default async function LicensesPage() {
     licenses
   );
 
-  console.info(`Retrieved a total of ${R.length(filteredLicenses)} licenses.`);
-
-  function isValidUrl(input: string, name: string): boolean {
-    try {
-      new URL(input); // Built-in URL class
-      return true;
-    } catch {
-      console.info(`Cannot parse "${input}" into URL for package "${name}".`);
-      return false;
-    }
-  }
+  logger.info(`Retrieved a total of ${R.length(filteredLicenses)} licenses.`);
 
   return (
     <Fragment>
@@ -52,39 +36,15 @@ export default async function LicensesPage() {
       <Stack spacing={2} direction="column">
         {R.map(
           (license) => (
-            <Card key={`${license.name}-${license.version}`}>
-              <CardHeader
-                action={
-                  isValidUrl(license.repository, license.name) ? (
-                    <Button
-                      startIcon={<LinkIcon />}
-                      size="small"
-                      href={license.repository}
-                      target="_blank"
-                      rel="noopener"
-                      aria-label="Navigate to repository"
-                    >
-                      Repository
-                    </Button>
-                  ) : null
-                }
-                title={license.name}
-                subheader={`${license.version}${
-                  license.author ? ` - ${license.author}` : ""
-                }`}
-              />
-              <CardContent>
-                <Typography
-                  variant="body1"
-                  component="pre"
-                  sx={{
-                    overflowX: "auto",
-                  }}
-                >
-                  {license.licenseText}
-                </Typography>
-              </CardContent>
-            </Card>
+            <LicenseCard
+              key={`${license.name}-${license.version}`}
+              name={license.name}
+              version={license.version}
+              repository={license.repository}
+              author={license.author}
+              license={license.license}
+              licenseText={license.licenseText}
+            />
           ),
           filteredLicenses
         )}
