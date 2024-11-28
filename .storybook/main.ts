@@ -14,5 +14,10 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ["../public"],
+  managerHead: (head) => `
+    ${head}
+    <link rel="shortcut icon" href="/icon.svg" />
+    <link rel="icon" type="image/png" href="/web-app-manifest-192x192.png" sizes="192x192" />
+  `,
 };
 export default config;
