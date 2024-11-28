@@ -35,7 +35,7 @@ export default function LicenseCard({
   license,
   licenseText,
 }: Readonly<LicenseProps>) {
-  const getSubheader = (): string => {
+  const getSubheaderText = (): string => {
     let subheader = R.join(" - ", [license, version]);
     if (author) {
       subheader += ` - ${author}`;
@@ -43,25 +43,25 @@ export default function LicenseCard({
     return subheader;
   };
 
+  const repositoryButton = isValidUrl(repository, name) ? (
+    <Button
+      startIcon={<LinkIcon />}
+      size="small"
+      href={repository}
+      target="_blank"
+      rel="noopener"
+      aria-label="Navigate to repository"
+    >
+      Repository
+    </Button>
+  ) : null;
+
   return (
     <Card>
       <CardHeader
-        action={
-          isValidUrl(repository, name) ? (
-            <Button
-              startIcon={<LinkIcon />}
-              size="small"
-              href={repository}
-              target="_blank"
-              rel="noopener"
-              aria-label="Navigate to repository"
-            >
-              Repository
-            </Button>
-          ) : null
-        }
+        action={repositoryButton}
         title={name}
-        subheader={getSubheader()}
+        subheader={getSubheaderText()}
       />
       <CardContent>
         <Typography

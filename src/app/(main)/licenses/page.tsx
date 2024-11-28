@@ -1,6 +1,6 @@
 import LicenseCard from "@/components/LicenseCard";
 import logger from "@/logger";
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import fs from "fs";
 import path from "path";
 import * as R from "ramda";
@@ -31,8 +31,9 @@ export default async function LicensesPage() {
 
   return (
     <Fragment>
-      <h1>3rd party open source licenses</h1>
-
+      <Typography variant="h3" gutterBottom>
+        Open-source licenses
+      </Typography>
       <Stack spacing={2} direction="column">
         {R.map(
           (license) => (
