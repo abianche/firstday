@@ -1,0 +1,28 @@
+meta {
+  name: Create Task
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/api/tasks
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "title": "Complete Bruno Tests",
+    "description": "Write and test Bruno requests for tasks API",
+    "dueDate": "2024-12-01T00:00:00.000Z",
+    "assignedTo": 1
+  }
+}
