@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyToken } from "./auth";
+import { UserJwtPayload, verifyToken } from "./auth";
 
 export function withAuth(handler: (req: NextRequest) => Promise<NextResponse>) {
   return async (req: NextRequest) => {
@@ -19,4 +19,14 @@ export function withAuth(handler: (req: NextRequest) => Promise<NextResponse>) {
       return NextResponse.json({ message: "Invalid token" }, { status: 401 });
     }
   };
+}
+
+export function getUserHeader(req: NextRequest) {
+  const userHeader = req.headers.get("user");
+
+  if (!userHeader) {
+    return null;
+  }
+
+  return JSON.parse(userHeader) as UserJwtPayload;
 }

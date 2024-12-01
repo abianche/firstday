@@ -1,0 +1,25 @@
+meta {
+  name: Delete Task
+  type: http
+  seq: 4
+}
+
+delete {
+  url: http://localhost:3000/api/tasks
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "id": 2
+  }
+}
