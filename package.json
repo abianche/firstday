@@ -94,7 +94,7 @@
     "drizzle-orm": "^0.38.2",
     "drizzle-zod": "^0.6.0",
     "jsonwebtoken": "^9.0.2",
-    "mui-tiptap": "^1.16.0",
+    "mui-tiptap": "^1.17.0",
     "next": "^15.1.2",
     "pg": "^8.13.1",
     "ramda": "^0.30.1",
