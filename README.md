@@ -1,6 +1,7 @@
 # First Day
 
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue)
+![Vercel](https://img.shields.io/github/deployments/abianche/firstday/production?style=flat&logo=vercel&label=Vercel)
 
 An onboarding app and training platform for your employees.
 
@@ -21,7 +22,7 @@ Stay tuned for updates and feel free to follow our progress or submit ideas in t
 
 ## Getting Started
 
-This project uses [Flutter](https://flutter.dev/).
+This project uses [Flutter](https://flutter.dev/) and the web build is continously deployed on [Vercel](https://vercel.com/).
 
 ## Setup
 
