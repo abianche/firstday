@@ -9,9 +9,21 @@ class DestinationPage {
 }
 
 const List<DestinationPage> destinations = <DestinationPage>[
-  DestinationPage('Home', Icon(Icons.home_outlined), Icon(Icons.home)),
-  DestinationPage('Tasks', Icon(Icons.task_outlined), Icon(Icons.task)),
-  DestinationPage('New', Icon(Icons.new_label_outlined), Icon(Icons.new_label)),
+  DestinationPage(
+    'Home',
+    Icon(Icons.home_outlined),
+    Icon(Icons.home),
+  ),
+  DestinationPage(
+    'Tasks',
+    Icon(Icons.task_outlined),
+    Icon(Icons.task),
+  ),
+  DestinationPage(
+    'New',
+    Icon(Icons.new_label_outlined),
+    Icon(Icons.new_label),
+  ),
 ];
 
 class Navigation extends StatefulWidget {
