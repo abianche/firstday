@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class DestinationPage {
   const DestinationPage(this.label, this.icon, this.selectedIcon);
@@ -91,6 +92,31 @@ class _NavigationState extends State<Navigation> {
                     );
                   },
                 ).toList(),
+                trailing: Expanded(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: IconButton(
+                        icon: const Icon(Icons.info),
+                        onPressed: () async {
+                          final packageInfo = await PackageInfo.fromPlatform();
+                          if (mounted) {
+                            showAboutDialog(
+                              // ignore: use_build_context_synchronously
+                              context: context,
+                              applicationIcon: const FlutterLogo(),
+                              applicationName: packageInfo.appName,
+                              applicationVersion: packageInfo.version,
+                              applicationLegalese: '© ${DateTime.now().year} Alessio Bianchetti\nApache-2.0 license',
+                            );
+                          }
+                        },
+                        tooltip: 'Show Licenses',
+                      ),
+                    ),
+                  ),
+                ),
                 selectedIndex: screenIndex,
                 useIndicator: true,
                 onDestinationSelected: (int index) {
