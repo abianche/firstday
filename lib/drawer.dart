@@ -84,35 +84,47 @@ class _NavigationState extends State<Navigation> {
               child: NavigationRail(
                 minWidth: 50,
                 destinations: destinations.map(
-                  (DestinationPage destination) {
+                  (destination) {
                     return NavigationRailDestination(
                       label: Text(destination.label),
-                      icon: destination.icon,
+                      icon: Tooltip(
+                        message: destination.label,
+                        waitDuration: Durations.medium2,
+                        child: destination.icon,
+                      ),
                       selectedIcon: destination.selectedIcon,
                     );
                   },
                 ).toList(),
                 trailing: Expanded(
                   child: Align(
-                    alignment: Alignment.bottomCenter,
+                    alignment: Alignment.bottomLeft,
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 8.0),
-                      child: IconButton(
-                        icon: const Icon(Icons.info),
-                        onPressed: () async {
-                          final packageInfo = await PackageInfo.fromPlatform();
-                          if (mounted) {
-                            showAboutDialog(
-                              // ignore: use_build_context_synchronously
-                              context: context,
-                              applicationIcon: const FlutterLogo(),
-                              applicationName: packageInfo.appName,
-                              applicationVersion: packageInfo.version,
-                              applicationLegalese: '© ${DateTime.now().year} Alessio Bianchetti\nApache-2.0 license',
-                            );
-                          }
-                        },
-                        tooltip: 'Show Licenses',
+                      child: Row(
+                        children: [
+                          Tooltip(
+                            message: 'Show Licenses',
+                            waitDuration: Durations.medium2,
+                            child: IconButton(
+                              icon: const Icon(Icons.info),
+                              onPressed: () async {
+                                final packageInfo = await PackageInfo.fromPlatform();
+                                if (mounted) {
+                                  showAboutDialog(
+                                    // ignore: use_build_context_synchronously
+                                    context: context,
+                                    applicationIcon: const FlutterLogo(),
+                                    applicationName: packageInfo.appName,
+                                    applicationVersion: packageInfo.version,
+                                    applicationLegalese:
+                                        '© ${DateTime.now().year} Alessio Bianchetti\nApache-2.0 license',
+                                  );
+                                }
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
