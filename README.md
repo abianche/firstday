@@ -1,6 +1,7 @@
 # First Day
 
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue)
+[![Codemagic](https://api.codemagic.io/apps/677bb519946c4ef5be703190/677bb519946c4ef5be70318f/status_badge.svg)](https://codemagic.io/app/677bb519946c4ef5be703190/677bb519946c4ef5be70318f/latest_build)
 ![Vercel](https://img.shields.io/github/deployments/abianche/firstday/production?style=flat&logo=vercel&label=Vercel)
 
 An onboarding app and training platform for your employees.
@@ -22,7 +23,7 @@ Stay tuned for updates and feel free to follow our progress or submit ideas in t
 
 ## Getting Started
 
-This project uses [Flutter](https://flutter.dev/) and the web build is continously deployed on [Vercel](https://vercel.com/).
+This project uses [Flutter](https://flutter.dev/) and the web build is continously deployed on [Vercel](https://vercel.com/). The current CI solution is [Codemagic](https://codemagic.io/).
 
 ## Setup
 
