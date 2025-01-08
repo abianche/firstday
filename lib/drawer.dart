@@ -1,4 +1,5 @@
 import 'package:firstday/bloc/navigation_bloc.dart';
+import 'package:firstday/quill_showcase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -144,9 +145,7 @@ class _NavigationState extends State<Navigation> {
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Text('Page Index = ${state.screenIndex}'),
-                    ],
+                    children: <Widget>[QuillShowcase()],
                   ),
                 ),
               ],

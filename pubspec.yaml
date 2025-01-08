@@ -17,7 +17,9 @@ dependencies:
   meta: ^1.15.0
   package_info_plus: ^8.1.2
   logger: ^2.5.0
+  path: ^1.9.0
   flutter_quill: ^10.8.5
+  flutter_quill_extensions: ^10.8.5
 
 dev_dependencies:
   flutter_test:
