@@ -30,6 +30,12 @@ const List<DestinationPage> destinations = <DestinationPage>[
   ),
 ];
 
+const List<Widget> screens = <Widget>[
+  Text('Home'),
+  Text('Tasks'),
+  QuillShowcase(),
+];
+
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
 
@@ -47,11 +53,9 @@ class _NavigationState extends State<Navigation> {
       builder: (context, state) {
         return Scaffold(
           body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Text('Page Index = ${state.screenIndex}'),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: screens[state.screenIndex],
             ),
           ),
           bottomNavigationBar: NavigationBar(
@@ -143,9 +147,9 @@ class _NavigationState extends State<Navigation> {
                 ),
                 const VerticalDivider(thickness: 1, width: 1),
                 Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[QuillShowcase()],
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: screens[state.screenIndex],
                   ),
                 ),
               ],

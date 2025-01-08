@@ -1,5 +1,8 @@
-import 'package:flutter/widgets.dart';
+import 'package:firstday/logger.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+
+final logger = getLogger("quill_showcase");
 
 class QuillShowcase extends StatefulWidget {
   const QuillShowcase({super.key});
@@ -30,7 +33,15 @@ class _QuillShowcaseState extends State<QuillShowcase> {
             controller: _controller,
             configurations: const QuillEditorConfigurations(),
           ),
-        )
+        ),
+        IconButton(
+          icon: Icon(Icons.save),
+          onPressed: () {
+            // Retrieve the JSON format of the document
+            final json = _controller.document.toDelta().toJson();
+            logger.i(json);
+          },
+        ),
       ],
     );
   }
