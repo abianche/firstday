@@ -13,6 +13,7 @@ class App extends StatelessWidget {
         BlocProvider(create: (_) => NavigationBloc()),
       ],
       child: MaterialApp(
+        title: 'First Day',
         home: const Navigation(),
       ),
     );
