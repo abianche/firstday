@@ -1,5 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:firstday/bloc/navigation/navigation_bloc.dart';
+import 'package:firstday/navigation/bloc/navigation_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

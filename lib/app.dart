@@ -1,4 +1,4 @@
-import 'package:firstday/bloc/navigation/navigation_bloc.dart';
+import 'package:firstday/navigation/bloc/navigation_bloc.dart';
 import 'package:firstday/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
