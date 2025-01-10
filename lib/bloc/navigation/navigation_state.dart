@@ -1,5 +1,6 @@
 part of 'navigation_bloc.dart';
 
+@immutable
 final class NavigationState extends Equatable {
   const NavigationState({required this.screenIndex});
   final int screenIndex;
