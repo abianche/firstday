@@ -1,5 +1,6 @@
 import 'package:firstday/navigation/bloc/navigation_bloc.dart';
 import 'package:firstday/quill_showcase.dart';
+import 'package:firstday/settings/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -28,12 +29,18 @@ const List<DestinationPage> destinations = <DestinationPage>[
     Icon(Icons.new_label_outlined),
     Icon(Icons.new_label),
   ),
+  DestinationPage(
+    'Profile',
+    Icon(Icons.person_outline),
+    Icon(Icons.person),
+  ),
 ];
 
 const List<Widget> screens = <Widget>[
   Text('Home'),
   Text('Tasks'),
   QuillShowcase(),
+  SettingsPage(),
 ];
 
 class Navigation extends StatefulWidget {
