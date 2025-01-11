@@ -1,0 +1,9 @@
+services:
+  flutter-web:
+    image: nginx:latest
+    container_name: flutter-web
+    restart: always
+    ports:
+      - "8080:80" # Serve Flutter app on http://localhost:8080
+    volumes:
+      - ./build/web:/usr/share/nginx/html
