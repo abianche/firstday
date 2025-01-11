@@ -25,6 +25,10 @@ jobs:
          cache: true
       - run: flutter --version
 
+      # Navigate to the frontend directory
+      - name: Change Directory to Frontend
+        run: cd frontend
+
       # Install dependencies
       - name: Install Dependencies
         run: flutter pub get
