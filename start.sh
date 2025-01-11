@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start the backend services
-cd backend
+cd appwrite
 docker-compose up -d
 cd -
 

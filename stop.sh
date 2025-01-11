@@ -6,6 +6,6 @@ docker-compose stop
 cd -
 
 # Stop the backend services
-cd backend
+cd appwrite
 docker-compose stop
 cd -
