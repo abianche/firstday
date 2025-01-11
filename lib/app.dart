@@ -1,5 +1,6 @@
 import 'package:firstday/navigation/bloc/navigation_bloc.dart';
 import 'package:firstday/drawer.dart';
+import 'package:firstday/profile/bloc/profile_bloc.dart';
 import 'package:firstday/settings/bloc/settings_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,6 +13,7 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => NavigationBloc()),
+        BlocProvider(create: (_) => ProfileBloc()),
         BlocProvider(create: (_) => SettingsBloc()),
       ],
       child: MaterialApp(

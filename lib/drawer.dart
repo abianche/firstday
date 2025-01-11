@@ -1,6 +1,6 @@
 import 'package:firstday/navigation/bloc/navigation_bloc.dart';
+import 'package:firstday/profile/profile_page.dart';
 import 'package:firstday/quill_showcase.dart';
-import 'package:firstday/settings/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -40,7 +40,7 @@ const List<Widget> screens = <Widget>[
   Text('Home'),
   Text('Tasks'),
   QuillShowcase(),
-  SettingsPage(),
+  ProfilePage(),
 ];
 
 class Navigation extends StatefulWidget {
