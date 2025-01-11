@@ -24,11 +24,37 @@ Stay tuned for updates and feel free to follow our progress or submit ideas in t
 
 ## Getting Started
 
-This project uses [Flutter](https://flutter.dev/) and the web build is continously deployed on [Vercel](https://vercel.com/). The current CI solution is [Codemagic](https://codemagic.io/).
+This project uses [Flutter](https://flutter.dev/) for the frontend and [Appwrite](https://appwrite.io/) as the backend.
+Both frontend and backend are containerized using [Docker](https://www.docker.com/).
+The web build is continously deployed on [Vercel](https://vercel.com/). Additionally, builds are also set up in [Codemagic](https://codemagic.io/).
 
 ## Setup
 
+### To run the frontend locally
+
 ```bash
+cd frontend
 flutter pub get
 flutter run
+```
+
+### Full application with Docker
+
+Ensure that the web app is already built with:
+
+```bash
+cd frontend
+flutter build web --release
+```
+
+Start the application:
+
+```bash
+./start.sh
+```
+
+Stop the application:
+
+```bash
+./stop.sh
 ```
