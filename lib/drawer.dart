@@ -29,6 +29,10 @@ const List<DestinationPage> destinations = <DestinationPage>[
     Icon(Icons.new_label_outlined),
     Icon(Icons.new_label),
   ),
+];
+
+const List<DestinationPage> bottomBarDestiantions = <DestinationPage>[
+  ...destinations,
   DestinationPage(
     'Profile',
     Icon(Icons.person_outline),
@@ -68,9 +72,15 @@ class _NavigationState extends State<Navigation> {
           bottomNavigationBar: NavigationBar(
             selectedIndex: state.screenIndex,
             onDestinationSelected: (int index) {
+              if (index == bottomBarDestiantions.length - 1) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const ProfilePage()),
+                );
+                return;
+              }
               context.read<NavigationBloc>().add(NavigationIndexChanged(index));
             },
-            destinations: destinations.map(
+            destinations: bottomBarDestiantions.map(
               (DestinationPage destination) {
                 return NavigationDestination(
                   label: destination.label,
@@ -116,32 +126,45 @@ class _NavigationState extends State<Navigation> {
                     trailing: Expanded(
                       child: Align(
                         alignment: Alignment.bottomLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: Row(
-                            children: [
-                              Tooltip(
-                                message: 'Show Licenses',
-                                waitDuration: Durations.medium2,
-                                child: IconButton(
-                                  icon: const Icon(Icons.info),
-                                  onPressed: () async {
-                                    final packageInfo = await PackageInfo.fromPlatform();
-                                    if (context.mounted) {
-                                      showAboutDialog(
-                                        context: context,
-                                        applicationIcon: const FlutterLogo(),
-                                        applicationName: packageInfo.appName,
-                                        applicationVersion: packageInfo.version,
-                                        applicationLegalese:
-                                            '© ${DateTime.now().year} Alessio Bianchetti\nApache-2.0 license',
-                                      );
-                                    }
-                                  },
-                                ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Tooltip(
+                              message: 'Show Licenses',
+                              waitDuration: Durations.medium2,
+                              child: IconButton(
+                                icon: const Icon(Icons.info),
+                                onPressed: () async {
+                                  final packageInfo = await PackageInfo.fromPlatform();
+                                  if (context.mounted) {
+                                    showAboutDialog(
+                                      context: context,
+                                      applicationIcon: const FlutterLogo(),
+                                      applicationName: packageInfo.appName,
+                                      applicationVersion: packageInfo.version,
+                                      applicationLegalese:
+                                          '© ${DateTime.now().year} Alessio Bianchetti\nApache-2.0 license',
+                                    );
+                                  }
+                                },
                               ),
-                            ],
-                          ),
+                            ),
+                            const SizedBox(height: 16),
+                            Tooltip(
+                              message: 'Profile',
+                              waitDuration: Durations.medium2,
+                              child: IconButton(
+                                icon: CircleAvatar(
+                                  child: const Icon(Icons.person),
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context) => const ProfilePage()),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
