@@ -5,6 +5,7 @@
         "dart-code.flutter",
         "naco-siren.gradle-language",
         "mariomatheu.syntax-project-pbxproj",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "ms-azuretools.vscode-docker"
     ]
 }
