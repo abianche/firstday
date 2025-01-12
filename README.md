@@ -23,6 +23,7 @@ We are actively building the foundation of this project, and it is not yet ready
 
 We appreciate your patience as we work toward our first stable release.  
 Stay tuned for updates and feel free to follow our progress or submit ideas in the [Issues](https://github.com/abianche/firstday/issues) section.
+Please read our [Contributing Guidelines](CONTRIBUTING.md) before getting started.
 
 ## Getting Started
 
