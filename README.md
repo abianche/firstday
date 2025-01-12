@@ -1,9 +1,11 @@
 # First Day
 
-![License](https://img.shields.io/badge/license-Apache%202.0-blue)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 [![Flutter CI](https://github.com/abianche/firstday/actions/workflows/flutter.yml/badge.svg)](https://github.com/abianche/firstday/actions/workflows/flutter.yml)
 [![Codemagic](https://api.codemagic.io/apps/677bb519946c4ef5be703190/677bb519946c4ef5be70318f/status_badge.svg)](https://codemagic.io/app/677bb519946c4ef5be703190/677bb519946c4ef5be70318f/latest_build)
 ![Vercel](https://img.shields.io/github/deployments/abianche/firstday/production?style=flat&logo=vercel&label=Vercel)
+![Docker](https://img.shields.io/badge/Docker-2CA5E0?&logo=docker&logoColor=white)
+
 
 An onboarding app and training platform for your employees.
 
